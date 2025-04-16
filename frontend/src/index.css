@@ -7,4 +7,13 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --color-primary-black: #00171F;
+  --color-dark-blue: #1A96FB;
+  --color-light-blue: #99d1ff;
+  --color-white: #FFFFFF;
+}
+
+body {
+  margin: auto;
 }

@@ -1,0 +1,39 @@
+.App-main {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  font-size: calc(10px + 2vmin);
+  color: black;
+}
+
+.App-main-wrapper {
+  display: flex;
+  width: 100%;
+}
+
+.active {
+  display: block;
+}
+
+.inactive {
+  display: none;
+}
+
+
+.login-wrapper {
+  display: flex;
+  width: 100%;
+}
+
+.sign-up-wrapper {
+  display: flex;
+  width: 100%;
+}
+
+.area-left {
+  flex: 1;
+}
+
+.area-right {
+  flex: 1;
+}
