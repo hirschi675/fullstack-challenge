@@ -30,4 +30,15 @@ I set up the models for the accounts and deals. I also decided to go with a link
 Fixing the backend to have proper routes so I can set up fetch requests on the frontend to get organizations, accounts, and deals.
 ```fetch('http://localhost:3000/organizations')```
 
+Then I set up the  `<Deal />` component to display each deal and for loop through them.
 
+## Finishing Touches
+
+**8:00PM-8:15PM**
+Finished polishing up broken code and seting up the loops/buttons to display the information correctly. Then I submitted the assignment with this being my documentation.
+
+by Logan Hirschi
+
+## Extra
+
+If I had more time I would fix it to be more responsive espcially when you have the side nav out...

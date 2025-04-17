@@ -35,6 +35,14 @@
   display: none
 }
 
+.filter-button {
+  border: solid black 1px;
+  border-radius: 5px;
+  margin-top:10px;
+  height: 40px;
+  padding: 5px 10px;
+}
+
 .dash-wrapper {
   display: flex;
   flex-direction: column;
@@ -88,14 +96,7 @@
 }
 
 
-@media only screen and (max-width: 1300px) {
-  .dash-wrapper {
-    width: 90%;
-  }
-}
-
 .tabbed {
-  min-width: 400px;
   margin: 0 auto;
   overflow: hidden;
   transition: border 250ms ease;
@@ -108,26 +109,22 @@
   padding-left: 48px;
   list-style-type: none;
 }
-.tabbed ul * {
-  margin: 0px;
-  padding: 0px;
-}
 .tabbed ul li {
   display: block;
   float: right;
   padding: 10px 24px 8px;
   background-color: #FFF;
   margin-right: 46px;
-  z-index: 2;
   position: relative;
   cursor: pointer;
   color: #777;
 
-  text-transform: uppercase;
-  font: 600 13px/20px roboto, "Open Sans", Helvetica, sans-serif;
+  font: 600 13px/20px;
 
   transition: all 250ms ease;
+  box-shadow: rgba(0,0,0,.1) 3px 2px 5px, inset rgba(255,255,255,.09) -1px 0;
 }
+
 .tabbed ul li:before,
 .tabbed ul li:after {
   display: block;
@@ -149,12 +146,7 @@
   transform: skew(-30deg, 0deg);
   box-shadow: rgba(0,0,0,.1) -3px 2px 5px, inset rgba(255,255,255,.09) 1px 0;
 }
-.tabbed ul li:hover,
-.tabbed ul li:hover:before,
-.tabbed ul li:hover:after {
-  background-color: #F4F7F9;
-  color: #444;
-}
+
 .tabbed ul li.active {
   z-index: 3;
 }
@@ -168,26 +160,10 @@
 .tabbed.skin-black-glass {
   border-bottom-color: #0a0809;
 }
-.tabbed.skin-black-glass,
-.tabbed.skin-black-glass ul li,
-.tabbed.skin-black-glass ul li:before,
-.tabbed.skin-black-glass ul li:after {
-  transition: none;
-}
-.tabbed.skin-black-glass ul li,
-.tabbed.skin-black-glass ul li:before,
-.tabbed.skin-black-glass ul li:after {
-  background-color: #333;
-}
-.tabbed.skin-black-glass ul li:hover,
-.tabbed.skin-black-glass ul li:hover:before,
-.tabbed.skin-black-glass ul li:hover:after {
-  background-color: #444;
-}
 
 
-.tabbed.skin-black-glass ul li:focus,
-.tabbed.skin-black-glass ul li:focus:before,
-.tabbed.skin-black-glass ul li:focus:after {
-  background-color: #121212;
+@media only screen and (max-width: 1300px) {
+  .dash-wrapper {
+    width: 90%;
+  }
 }

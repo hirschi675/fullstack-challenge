@@ -27,8 +27,15 @@ function Dashboard(props:any) {
                   <h4 style={{margin: "0px"}}>{activeTab}</h4>
                   <div>$30,000 | $40,000</div>
                 </div>
-                <div>Filter Button</div>
+                <div className='filter-button'>Filter Button =</div>
               </div>
+              <Deal />
+              <Deal />
+              <Deal />
+              <Deal />
+              <Deal />
+              <Deal />
+              <Deal />
               <Deal />
             </div>
           </div>

@@ -1,0 +1,25 @@
+.deal-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  border: solid black 1px;
+  border-radius: 5px;
+  padding: 5px 15px;
+  box-shadow: 2px 2px 5px rgb(177, 177, 177);
+}
+
+.status-color {
+  width: 20px;
+  height: 20px;
+  border-radius: 2px;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.blue-status {
+  background-color: var(--color-dark-blue);
+}
+
+.red-status {
+  background-color: red;
+}
