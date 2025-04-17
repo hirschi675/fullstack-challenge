@@ -3,10 +3,28 @@
   padding: 50px;
   margin: auto;
   display: block;
-  text-align: center;
   position: relative;
-  width: 100%;
-  margin-left: 30px;
+  margin-left: 10px;
+}
+
+.grow-dash {
+  width: 77%;
+  -moz-transition: all .5s linear;
+  -webkit-transition: all .5s linear;
+  transition: all .5s linear;
+  -moz-transform:translateX(190px);
+  -webkit-transform:translateX(190px);
+  transform:translateX(190px);
+}
+
+.shrink-dash {
+  width: 90%;
+  -moz-transition: all .5s linear;
+  -webkit-transition: all .5s linear;
+  transition: all .5s linear;
+  -moz-transform:translateX(-10px);
+  -webkit-transform:translateX(0px);
+  transform:translateX(0px);
 }
 
 .active {
@@ -19,12 +37,11 @@
 
 .dash-wrapper {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   width: 100%;
-  border: solid var(--color-dark-blue) 1px;
-  border-radius: 5px;
   padding: 30px 0px;
   margin-bottom: 30px;
+  padding: 20px;
 }
 
 .details-wrapper {
@@ -32,8 +49,156 @@
   margin: 50px;
 }
 
-@media only screen and (max-width: 1000px) {
+.no-margin {
+  margin-bottom: 0px !important;
+  margin-top: 0px !important;
+}
+
+.deals-tabs-wrapper {
+  margin-bottom: 20px;
+  border: solid var(--color-primary-black) 2px;
+  border-radius: 3px;
+  padding: 40px;
+}
+.top-deals-tab-wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  border-bottom: solid lightgray 2px;
+}
+
+.deal-tab {
+  background-color: lightgray;
+  width: auto;
+  padding: 5px 20px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  box-shadow: 5px 0 5px -2px #888;
+  margin-right: 5px;
+}
+
+.deal-tab:hover {
+  cursor: pointer;
+  background-color: rgb(181, 181, 181);
+}
+
+.deal-tab:focus {
+  background-color: black;
+  color: white;
+}
+
+
+@media only screen and (max-width: 1300px) {
   .dash-wrapper {
-    flex-direction: column;
+    width: 90%;
   }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Tabbed Styles */
+.tabbed {
+  min-width: 400px;
+  margin: 0 auto;
+  overflow: hidden;
+  transition: border 250ms ease;
+}
+.tabbed ul {
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+  float: left;
+  padding-left: 48px;
+  list-style-type: none;
+}
+.tabbed ul * {
+  margin: 0px;
+  padding: 0px;
+}
+.tabbed ul li {
+  display: block;
+  float: right;
+  padding: 10px 24px 8px;
+  background-color: #FFF;
+  margin-right: 46px;
+  z-index: 2;
+  position: relative;
+  cursor: pointer;
+  color: #777;
+
+  text-transform: uppercase;
+  font: 600 13px/20px roboto, "Open Sans", Helvetica, sans-serif;
+
+  transition: all 250ms ease;
+}
+.tabbed ul li:before,
+.tabbed ul li:after {
+  display: block;
+  content: " ";
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 44px;
+  background-color: #FFF;
+  transition: all 250ms ease;
+}
+.tabbed ul li:before {
+  right: -24px;
+  transform: skew(30deg, 0deg);
+  box-shadow: rgba(0,0,0,.1) 3px 2px 5px, inset rgba(255,255,255,.09) -1px 0;
+}
+.tabbed ul li:after {
+  left: -24px;
+  transform: skew(-30deg, 0deg);
+  box-shadow: rgba(0,0,0,.1) -3px 2px 5px, inset rgba(255,255,255,.09) 1px 0;
+}
+.tabbed ul li:hover,
+.tabbed ul li:hover:before,
+.tabbed ul li:hover:after {
+  background-color: #F4F7F9;
+  color: #444;
+}
+.tabbed ul li.active {
+  z-index: 3;
+}
+.tabbed ul li.active,
+.tabbed ul li.active:before,
+.tabbed ul li.active:after {
+  background-color: #000;
+  color: #fff;
+}
+
+.tabbed.skin-black-glass {
+  border-bottom-color: #0a0809;
+}
+.tabbed.skin-black-glass,
+.tabbed.skin-black-glass ul li,
+.tabbed.skin-black-glass ul li:before,
+.tabbed.skin-black-glass ul li:after {
+  transition: none;
+}
+.tabbed.skin-black-glass ul li,
+.tabbed.skin-black-glass ul li:before,
+.tabbed.skin-black-glass ul li:after {
+  background-color: #333;
+}
+.tabbed.skin-black-glass ul li:hover,
+.tabbed.skin-black-glass ul li:hover:before,
+.tabbed.skin-black-glass ul li:hover:after {
+  background-color: #444;
+}
+
+
+.tabbed.skin-black-glass ul li:focus,
+.tabbed.skin-black-glass ul li:focus:before,
+.tabbed.skin-black-glass ul li:focus:after {
+  background-color: #121212;
 }
