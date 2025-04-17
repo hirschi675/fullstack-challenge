@@ -40,18 +40,21 @@ function App() {
     async function loadData() {
       try {
         const orgRes = await fetch('http://localhost:3000/organizations');
+        if (!orgRes.ok) throw new Error('Org fetch failed');
         const orgData = await orgRes.json();
         setOrganizations(orgData.rows);
 
         const accRes = await fetch('http://localhost:3000/accounts');
+        if (!accRes.ok) throw new Error('Account fetch failed');
         const accData = await accRes.json();
         setAccounts(accData.rows);
 
         const dealRes = await fetch('http://localhost:3000/deals');
+        if (!dealRes.ok) throw new Error('Deal fetch failed');
         const dealData = await dealRes.json();
         setDeals(dealData.rows);
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error('Error fetching data. App will load with no data.', error);
       }
     }
 

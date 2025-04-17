@@ -34,7 +34,7 @@ Then I set up the  `<Deal />` component to display each deal and for loop throug
 
 ## Finishing Touches
 
-**8:00PM-8:15PM**
+**8:00PM-8:30PM**
 Finished polishing up broken code and seting up the loops/buttons to display the information correctly. Then I submitted the assignment with this being my documentation.
 
 by Logan Hirschi
@@ -42,3 +42,4 @@ by Logan Hirschi
 ## Extra
 
 If I had more time I would fix it to be more responsive espcially when you have the side nav out...
+Also I would fix the filter to not be right on top of the results so you can see it better but for now that's what I've got.

@@ -4,13 +4,6 @@ import initializeDatabase from "./db";
 const app = express();
 const port = process.env.PORT || 3000;
 
-/**
- * Welcome to the Fullstack Challenge for the Server!
- *
- * This is a basic express server.
- * You can customize and organize it to your needs.
- * Good luck!
- */
 const db = initializeDatabase();
 
 app.use(cors());
@@ -28,8 +21,31 @@ app.get("/accounts", (req, res) => {
 });
 
 app.get("/deals", (req, res) => {
-  const rows = db.prepare("SELECT * FROM deals").all();
-  res.json({ message: "Welcome to the server! 🎉", rows });
+  try {
+    const allowedSortFields = ["start_date", "end_date", "value", "id"];
+    const sortByRaw = req.query.sortBy;
+    const sortBy = typeof sortByRaw === "string" && allowedSortFields.includes(sortByRaw)
+      ? sortByRaw
+      : "start_date";
+
+    const orderRaw = req.query.order;
+    const order = orderRaw === "desc" ? "DESC" : "ASC";
+
+    const statusFilter =
+      req.query.status === "active"
+        ? "WHERE status = 1"
+        : req.query.status === "inactive"
+        ? "WHERE status = 0"
+        : "";
+
+    const query = `SELECT * FROM deals ${statusFilter} ORDER BY ${sortBy} ${order}`;
+    const rows = db.prepare(query).all();
+
+    res.json({ message: `Deals sorted by ${sortBy} ${order}`, rows });
+  } catch (error) {
+    console.error("Error in /deals:", error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
 });
 
 app.listen(port, () => {

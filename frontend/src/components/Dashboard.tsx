@@ -27,6 +27,13 @@ type AccountType = {
   name: string;
 };
 
+function activeDeals() {
+  const dealsArea = document.getElementById("deals-area");
+  if (dealsArea) {
+    dealsArea.innerHTML = "All Active Deals";
+  }
+}
+
 function Dashboard(props: any) {
   const [activeTab, setActiveTab] = useState<string>("");
   const [currentOrganization, setCurrentOrganization] = useState<OrganizationType | null>(null);
@@ -38,6 +45,52 @@ function Dashboard(props: any) {
   const [showOnlyActive, setShowOnlyActive] = useState(false);
   const [showFilter, setShowFilter] = useState(false);
   const [nameFilter, setNameFilter] = useState('');
+
+  const [sortedDeals, setSortedDeals] = useState<DealType[]>([]);
+
+  async function activeDeals() {
+    try {
+      const dealRes = await fetch('http://localhost:3000/deals?status=active');
+      if (!dealRes.ok) throw new Error('Deal fetch failed');
+      const dealData = await dealRes.json();
+      setSortedDeals(dealData.rows);
+    } catch (error) {
+      console.error('Error fetching data. App will load with no data.', error);
+    }
+  }
+
+  async function inactiveDeals() {
+    try {
+      const dealRes = await fetch('http://localhost:3000/deals?status=inactive');
+      if (!dealRes.ok) throw new Error('Deal fetch failed');
+      const dealData = await dealRes.json();
+      setSortedDeals(dealData.rows);
+    } catch (error) {
+      console.error('Error fetching data. App will load with no data.', error);
+    }
+  }
+
+  async function dealsByStartDate() {
+    try {
+      const dealRes = await fetch('http://localhost:3000/deals?sortBy=start_date&order=asc');
+      if (!dealRes.ok) throw new Error('Deal fetch failed');
+      const dealData = await dealRes.json();
+      setSortedDeals(dealData.rows);
+    } catch (error) {
+      console.error('Error fetching data. App will load with no data.', error);
+    }
+  }
+
+  async function dealsByEndDate() {
+    try {
+      const dealRes = await fetch('http://localhost:3000/deals?sortBy=end_date&order=asc');
+      if (!dealRes.ok) throw new Error('Deal fetch failed');
+      const dealData = await dealRes.json();
+      setSortedDeals(dealData.rows);
+    } catch (error) {
+      console.error('Error fetching data. App will load with no data.', error);
+    }
+  }
 
 
   useEffect(() => {
@@ -60,7 +113,6 @@ function Dashboard(props: any) {
     }
   }, [props.accounts, props.activeId, props.organizations, activeTab]);
 
-  // Filter deals
   const filteredDeals = props.deals.filter((deal: DealType) => {
     const isMatchingAccountAndOrg =
       deal.account_id === currentAccount?.id && deal.org_id === currentOrganization?.id;
@@ -84,8 +136,7 @@ function Dashboard(props: any) {
     );
   });
 
-  // Calculate the total value of the filtered deals
-  const totalValue = filteredDeals.reduce((sum, deal) => sum + deal.value, 0);
+  const totalValue = filteredDeals.reduce((sum: number, deal: DealType) => sum + deal.value, 0);
 
   return (
     <div
@@ -176,6 +227,26 @@ function Dashboard(props: any) {
             </div>
           </div>
         </div>
+      </div>
+      <span>Extra: sorted api calls below</span>
+      <div className='extra-buttons-wrapper'>
+        <div>
+          <div className="fetch-button" onClick={() => activeDeals()}>All Active Deals</div>
+          <div className="fetch-button" onClick={() => inactiveDeals()}>All Inactive Deals</div>
+        </div>
+        <div>
+          <div className="fetch-button" onClick={() => dealsByStartDate()}>Deals By Start Date</div>
+          <div className="fetch-button" onClick={() => dealsByEndDate()}>Deals By End Date</div>
+        </div>
+      </div>
+      <div id="deals-area">
+      {sortedDeals.map((deal: DealType, index: number) => (
+        <Deal
+          className={`${deal.hidden ? 'hidden' : ''}`}
+          key={deal.id || index}
+          deal={deal}
+        />
+      ))}
       </div>
     </div>
   );

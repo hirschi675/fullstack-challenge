@@ -57,7 +57,6 @@
   flex-direction: column;
   width: 100%;
   padding: 30px 0px;
-  margin-bottom: 30px;
   padding: 20px;
 }
 
@@ -181,7 +180,7 @@
   position: absolute;
   top: 50px;
   right: 0;
-  background-color: #b3b3b3d6;
+  background-color: #ffffffeb;
   border: 1px solid #aaa;
   padding: 15px;
   border-radius: 8px;
@@ -226,4 +225,22 @@
   .tabbed ul li:before, .tabbed ul li:after {
     width: 32px;
   }
+}
+
+
+.fetch-button {
+  margin-top: 20px;
+  background-color: var(--color-primary-black);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  width: 250px;
+  text-align: center;
+}
+
+.extra-buttons-wrapper {
+  display: flex;
+  justify-content: space-evenly;
 }
