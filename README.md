@@ -25,7 +25,7 @@ At SponsorCX, we help `organizations` manage the sponsorships they have with the
 
 **Deal**: A `Deal` is a contract between an `organization` and an `account`. It has a `start date`, an `end date`, a `value`and a `status`.
 
-Organizations can have multiple `accounts` and `accounts` can have multiple `deals`. 
+`Organizations` can have multiple `accounts` and `accounts` can have multiple `deals`. 
 <br/>
 <br/>
 <br/>
