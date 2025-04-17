@@ -17,8 +17,18 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get("/", (req, res) => {
+app.get("/organizations", (req, res) => {
   const rows = db.prepare("SELECT * FROM organizations").all();
+  res.json({ message: "Welcome to the server! 🎉", rows });
+});
+
+app.get("/accounts", (req, res) => {
+  const rows = db.prepare("SELECT * FROM accounts").all();
+  res.json({ message: "Welcome to the server! 🎉", rows });
+});
+
+app.get("/deals", (req, res) => {
+  const rows = db.prepare("SELECT * FROM deals").all();
   res.json({ message: "Welcome to the server! 🎉", rows });
 });
 
