@@ -1,6 +1,6 @@
-import React from 'react';
 import './Page.css';
 import {useState} from 'react';
+import Deal from "./Deal"
 
 function Dashboard(props:any) {
   const [activeTab, setActiveTab] = useState("Deal 1")
@@ -29,7 +29,7 @@ function Dashboard(props:any) {
                 </div>
                 <div>Filter Button</div>
               </div>
-              {/* <Deal /> */}
+              <Deal />
             </div>
           </div>
         </div>

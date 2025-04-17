@@ -1,4 +1,4 @@
-# SponsorCX Project (3.6 Hours) <-- Change this to whatever time I actually used*****
+# SponsorCX Project (4 Hours)
 
 I started April 15th 6:00PM
 
@@ -22,3 +22,12 @@ Example:
 
 **6:35PM-7:30PM**
 I set up the models for the accounts and deals. I also decided to go with a linking table for the deals because I think it's best so I don't have to make multiple accounts for each of the organizations. I will test it out and decide if I should go back and change it so each account has an org_id.
+
+
+## Connecting Both
+
+**7:30PM-8:00PM**
+Fixing the backend to have proper routes so I can set up fetch requests on the frontend to get organizations, accounts, and deals.
+```fetch('http://localhost:3000/organizations')```
+
+
